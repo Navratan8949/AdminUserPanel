@@ -339,10 +339,10 @@ const InvoiceContain = () => {
                     <thead>
                       <tr>
                         <th>S.NO</th>
-                        <th>To  wallet address</th>
-                        <th>From wallet address </th>
                         <th>To User ID </th>
-                        <th>from User ID </th>
+                        <th>To  wallet address</th>
+                        <th>From User ID </th>
+                        <th>From wallet address </th>
                         <th>Income Type</th>
                         <th>Amount</th>
                         <th>Date & Time</th>
@@ -367,6 +367,7 @@ const InvoiceContain = () => {
                         {filteredData.map((row, index) => (
                           <tr key={index}>
                             <td>{row.sno}</td>
+                            <td>{row.FromUserID}</td>
                             <td>{row.ToWalletAddress}</td>
                             {/* <td
                               style={{ cursor: 'pointer' }}
@@ -374,9 +375,8 @@ const InvoiceContain = () => {
                             >
                               {row.WalletAddress}
                             </td> */}
-                            <td>{row.FromWalletAddress}</td>
                             <td>{row.id}</td>
-                            <td>{row.FromUserID}</td>
+                            <td>{row.FromWalletAddress}</td>
                             <td>{row.Incometype}</td>
                             <td>{row.Amount}</td>
                             <td>{row.Date}</td>

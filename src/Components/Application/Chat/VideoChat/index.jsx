@@ -59,8 +59,10 @@ const VideoChatContain = () => {
 
   const [data, setData] = useState(
     [
-      { sno: '1', name: 'Tiger Nixon', id: '	#101', SponserID: '61', UserWalletAddress: '	$320,800', SponserWalletAddress: 'male', time: '21:37', wallet: '$2125', joindate: '2023/02/12', Date: '2023/04/12',
-      ReferralIncome:'$12', LevelIncome:'$22', PackageIncome:'$25', SlotIncome:'$20,', TotalIncome:'$5'  },
+      {
+        sno: '1', name: 'Tiger Nixon', id: '	#101', SponserID: '61', UserWalletAddress: '	$320,800', SponserWalletAddress: 'male', time: '21:37', wallet: '$2125', joindate: '2023/02/12', Date: '2023/04/12',
+        ReferralIncome: '$12', LevelIncome: '$22', PackageIncome: '$25', SlotIncome: '$20,', TotalIncome: '$5'
+      },
     ]
   )
 

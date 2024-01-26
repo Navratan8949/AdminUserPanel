@@ -33,14 +33,14 @@ const TodoContain = () => {
 
   const [data, setData] = useState(
     [
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/10', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2008/11/23', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
-      { Date: '2005/11/04', Slot: 'User', Slottype: '$64', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (Renew)', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (Renew)', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (New)', transaction: 'user'   },
+      { Date: '2005/11/10', Slot: 'User', Slottype: '$64 (New)', transaction: 'user'   },
+      { Date: '2008/11/23', Slot: 'User', Slottype: '$64 (New)', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (Renew)', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (New)', transaction: 'user'   },
+      { Date: '2005/11/04', Slot: 'User', Slottype: '$64 (Renew)', transaction: 'user'   },
      
     ]
   )
@@ -187,7 +187,7 @@ const TodoContain = () => {
 
                             <th >Date & Time </th>
                             <th> Slot</th>
-                            <th>Slot type (Renew / New)</th>
+                            <th>Slot type</th>
                             <th>Transation Hash</th>
                             {/* <th>Level</th>
                             <th>Package Type</th> */}

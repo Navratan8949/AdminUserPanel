@@ -217,14 +217,13 @@ const ChatAppContain = () => {
                         <th>Sponser Wallet Address</th>
                         {/* <th>Wallet Address</th> */}
                         {/* <th>Wallet Amount</th> */}
-                        <th>Joinin Date</th>
                         {/* <th>Time</th> */}
-                        <th >Date & Time</th>
                         <th >Referral Income</th>
                         <th >Level Income</th>
                         <th >Package Upgrade Income</th>
                         <th >Slot Income</th>
                         <th >Total Income</th>
+                        <th >Date & Time</th>
                         {/* <th>Action</th> */}
                       </tr>
                     </thead>
@@ -244,14 +243,13 @@ const ChatAppContain = () => {
                           >
                             {row.WalletAddress}
                           </td> */}
-                          <td>{row.joindate}</td>
                           {/* <td>{row.time}</td> */}
-                          <td>{row.Date}</td>
                           <td>{row.ReferralIncome}</td>
                           <td>{row.LevelIncome}</td>
                           <td>{row.PackageIncome}</td>
                           <td>{row.SlotIncome}</td>
                           <td>{row.TotalIncome}</td>
+                          <td>{row.Date}</td>
                           {/* <td>
                             <Button color='primary' onClick={() => handleEditClick(row)}>
                               Edit

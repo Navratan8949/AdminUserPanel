@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Btn, H4 } from "../../../../AbstractElements";
 import { useForm } from "react-hook-form";
 import './EditProfile.css'
@@ -7,9 +7,18 @@ import { EditProfile, Company, Username, UsersCountryMenu, AboutMe, UpdateProfil
 
 const EditMyProfile = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [isEditMode, setIsEditMode] = useState(false);
+
     const onEditSubmit = (data) => {
         alert(data)
     }
+
+
+    const toggleEditMode = () => {
+        setIsEditMode(!isEditMode);
+    }
+
+
     return (
         <Fragment>
             <Form className="card" onSubmit={handleSubmit(onEditSubmit)}>
@@ -144,15 +153,14 @@ const EditMyProfile = () => {
                         </Col> */}
                     </Row>
                 </CardBody>
-                <CardFooter className="text-end" style={{display:'flex', gap:'10px', justifyContent:'flex-end'}}>
-                    <div  className="Edit-button">
-                        {/* {UpdateProfile} */}
-                        Edit
-                        </div>
-                        <Button attrBtn={{ color: "primary", type: "submit" }} >
+                <CardFooter className="text-end" style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
+                    <div className="Edit-button" onClick={toggleEditMode}>
+                        {isEditMode ? 'Cancel' : 'Edit'}
+                    </div>
+                    <Button attrBtn={{ color: "primary", type: "submit" }}>
                         {/* {UpdateProfile} */}
                         Submit
-                        </Button>
+                    </Button>
                 </CardFooter>
             </Form>
         </Fragment>
