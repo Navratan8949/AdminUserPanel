@@ -22,6 +22,8 @@ const VideoChatContain = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editedRow, setEditedRow] = useState(null);
   const navigate = useNavigate();
+  const [searchAllColumns, setSearchAllColumns] = useState('');
+
 
   const handleWalletClick = (walletAddress) => {
     setSelectedWallet(walletAddress);
@@ -60,7 +62,7 @@ const VideoChatContain = () => {
   const [data, setData] = useState(
     [
       {
-        sno: '1', name: 'Tiger Nixon', id: '	#101', SponserID: '61', UserWalletAddress: '	$320,800', SponserWalletAddress: 'male', time: '21:37', wallet: '$2125', joindate: '2023/02/12', Date: '2023/04/12',
+        sno: '1', name: 'Tiger Nixon', id: '	#101', SponserID: '61', UserWalletAddress: '	$320,800', SponserWalletAddress: 'male', time: '21:37', wallet: '$2125', Date: '2023/04/12',
         ReferralIncome: '$12', LevelIncome: '$22', PackageIncome: '$25', SlotIncome: '$20,', TotalIncome: '$5'
       },
     ]
@@ -89,13 +91,28 @@ const VideoChatContain = () => {
     const statusFilter =
       selectedStatus === '' ? true : row.status.toLowerCase() === selectedStatus.toLowerCase();
 
+    const searchText = searchAllColumns.toLowerCase();
+
     return (
       statusFilter &&
       rowDate >= (fromDateObj || rowDate) &&
       rowDate <= (toDateObj || rowDate) &&
-      row.Date.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      row.name.toLowerCase().includes(searchFromUserName.toLowerCase())
-    );
+      (
+        row.Date.toLowerCase().includes(searchText) ||
+        row.name.toLowerCase().includes(searchText) ||
+        row.id.toLowerCase().includes(searchText) ||
+        row.UserWalletAddress.toLowerCase().includes(searchText) ||
+        // row.EmailID.toLowerCase().includes(searchText) ||
+        row.wallet.toLowerCase().includes(searchText) ||
+        row.SponserID.toLowerCase().includes(searchText) ||
+        row.SponserWalletAddress.toLowerCase().includes(searchText) ||
+        row.ReferralIncome.toLowerCase().includes(searchText) ||
+        row.LevelIncome.toLowerCase().includes(searchText) ||
+        row.PackageIncome.toLowerCase().includes(searchText) ||
+        row.SlotIncome.toLowerCase().includes(searchText) ||
+        row.TotalIncome.toLowerCase().includes(searchText)
+      )
+    )
   });
 
   const tableRef = useRef(null);
@@ -172,16 +189,16 @@ const VideoChatContain = () => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              Search From User Name:-
+              Search All Columns:-
               <Input
                 type='text'
-                style={{ width: '200px' }}
-                placeholder='Enter From User Name'
-                value={searchFromUserName}
-                onChange={(e) => setSearchFromUserName(e.target.value)}
+                style={{ width: '200px', color: 'white', border: '1px solid #313C4C' }}
+                placeholder='Enter search term'
+                value={searchAllColumns}
+                onChange={(e) => setSearchAllColumns(e.target.value)}
               />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               Search by Status:-
               <Input
                 type='select'
@@ -196,7 +213,7 @@ const VideoChatContain = () => {
                   </option>
                 ))}
               </Input>
-            </div>
+            </div> */}
           </div>
           <hr />
           <div className='table-responsive'>
@@ -224,7 +241,6 @@ const VideoChatContain = () => {
                         <th>Sponser Wallet Address</th>
                         {/* <th>Wallet Address</th> */}
                         {/* <th>Wallet Amount</th> */}
-                        <th>Joinin Date</th>
                         {/* <th>Time</th> */}
                         <th >Date & Time</th>
                         <th >Referral Income</th>
@@ -251,7 +267,6 @@ const VideoChatContain = () => {
                        >
                          {row.WalletAddress}
                        </td> */}
-                          <td>{row.joindate}</td>
                           {/* <td>{row.time}</td> */}
                           <td>{row.Date}</td>
                           <td>{row.ReferralIncome}</td>

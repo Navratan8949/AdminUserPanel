@@ -213,28 +213,6 @@ const Dashboard = () => {
         <Breadcrumbs mainTitle="Dashboard" parent="Dashboard" title="Default" />
         <Container fluid={true}>
 
-          {/* <div className='notification-slider overflow-hidden '>
-       <Slider className='m-0' {...notificationSliderOption}>
-       <div className='d-flex h-100'>
-       <Image attrImage={{ src: fireImage, alt: 'gif' }} />
-       <H6 attrH6={{ className: 'mb-0 f-w-400' }}>
-       <span className='font-primary'>Don't Miss Out! </span>
-       <span className='f-light'>Out new update has been release.</span>
-           </H6>
-           <i className='icon-arrow-top-right f-light' />
-         </div>
-         <div className='d-flex h-100'>
-         <Image attrImage={{ src: fireImage, alt: 'gif' }} />
-         <H6 attrH6={{ className: 'mb-0 f-w-400' }}>
-         <span className='f-light'>Something you love is now on sale! </span>
-         </H6>
-         <Link className='ms-1' to='https:1.envato.market/3GVzd' target='_blank'>
-             Buy now !
-             </Link>
-             </div>
-             </Slider>
-            </div> */}
-
           {/* <DashBoardWidgets /> */}
           <Row style={{ marginBottom: '50px' }}>
 
@@ -357,9 +335,9 @@ const Dashboard = () => {
                   Announcment :
                 </div>
                 <div style={{ width: '80%', paddingLeft: '15px' }}>
-                  <marquee className="hurryup" behavior="smooth" direction="left" >
-                    User New For OFF 50% !Up Hurry.
-                    {/* Hurry up! 50% OFF For New User */}
+                  <marquee className="hurryup" behavior="smooth" direction="right" >
+                    {/* User New For OFF 50% !Up Hurry. */}
+                    Hurry up! 50% OFF For New User
                   </marquee>
                 </div>
               </div>

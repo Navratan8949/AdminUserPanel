@@ -8,6 +8,8 @@ import { LI, UL, Image, P } from "../../../AbstractElements";
 import CustomizerContext from "../../../_helper/Customizer";
 import { Account, Admin, Inbox, LogOut, Taskboard } from "../../../Constant";
 import BasicMenu from "./UserDropdown";
+import HoverDropdown from "./HoverDropdown";
+import MenuListComposition from "./HoverDropdown";
 
 const UserHeader = () => {
   const history = useNavigate();
@@ -38,17 +40,17 @@ const UserHeader = () => {
   return (
     <div className="User-icons">
 
-    <li className="profile-nav user-icons onhover-dropdown  pe-0 py-0" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-      <div className="media profile-media" style={{display:'flex',alignItems:'center'}}>
-        {/* <Image
+      <li className="profile-nav user-icons onhover-dropdown  pe-0 py-0" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
+        {/* <div className="media profile-media" style={{display:'flex',alignItems:'center'}}>
+        <Image
         
           attrImage={{
             className: "b-r-10 m-0",
             src: `${authenticated ? auth0_profile.picture : profile}`,
             alt: "",
           }}
-        /> */}
-        {/* <img src="template/public/user-icon1bg.png" alt="" /> */}
+        />
+        <img src="template/public/user-icon1bg.png" alt="" />
         <BasicMenu />
         <AccountCircleRoundedIcon style={{ fontSize: 'large', background:'#A7A8AD', borderRadius:'50%' }} />
         <div className="media-body" >
@@ -57,8 +59,9 @@ const UserHeader = () => {
             {Admin} <i className="middle fa fa-angle-down"></i>
           </P>
         </div>
-      </div>
-      <UL attrUL={{ className: "simple-list profile-dropdown onhover-show-div" }}>
+      </div> */}
+        <MenuListComposition />
+        {/* <UL attrUL={{ className: "simple-list profile-dropdown onhover-show-div" }}>
         <LI
           attrLI={{
             onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/users/edit/${layoutURL}`),
@@ -71,10 +74,10 @@ const UserHeader = () => {
           <LogIn />
           <span>{LogOut}</span>
         </LI>
-      </UL>
+      </UL> */}
 
 
-    </li>
+      </li>
     </div>
 
   );
@@ -84,17 +87,3 @@ export default UserHeader;
 
 
 
-{/* <LI
-          attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/email-app/${layoutURL}`),
-          }}>
-          <Mail />
-          <span>{Inbox}</span>
-        </LI> */}
-{/* <LI
-          attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/todo-app/todo/${layoutURL}`),
-          }}>
-          <FileText />
-          <span>{Taskboard}</span>
-        </LI> */}

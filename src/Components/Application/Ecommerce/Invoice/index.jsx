@@ -23,6 +23,8 @@ const InvoiceContain = () => {
   const [levelIncome, setLevelIncome] = useState(false)
   const [packageincome, setPackageincome] = useState(false)
   const [slotincome, setSlotincome] = useState(false)
+    const [searchAllColumns, setSearchAllColumns] = useState('');
+
 
   // const navigate = useNavigate();
 
@@ -62,7 +64,7 @@ const InvoiceContain = () => {
 
   const [data, setData] = useState(
     [
-      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', FromUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12' },
+      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', ToUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12' },
     ]
   )
 
@@ -90,9 +92,9 @@ const InvoiceContain = () => {
 
   const [levelincomedata, setLevelincomedata] = useState(
     [
-      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', FromUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
-      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', FromUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
-      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', FromUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
+      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', ToUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
+      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', ToUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
+      { sno: '1', ToWalletAddress: 'Tiger Nixon', id: '	#101', FromWalletAddress: '	$320,800', ToUserID: '456256', Incometype: '21:37', Amount: '$2125', Date: '2023/04/12', Remark:'Level 1' },
     ]
   )
 
@@ -119,13 +121,24 @@ const InvoiceContain = () => {
     const statusFilter =
       selectedStatus === '' ? true : row.status.toLowerCase() === selectedStatus.toLowerCase();
 
+    const searchText = searchAllColumns.toLowerCase();
+
     return (
       statusFilter &&
       rowDate >= (fromDateObj || rowDate) &&
       rowDate <= (toDateObj || rowDate) &&
-      row.Date.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      row.ToWalletAddress.toLowerCase().includes(searchFromUserName.toLowerCase())
-    );
+      (
+        row.Date.toLowerCase().includes(searchText) ||
+        row.ToWalletAddress.toLowerCase().includes(searchText) ||
+        row.id.toLowerCase().includes(searchText) ||
+        row.ToUserID.toLowerCase().includes(searchText) ||
+        row.FromWalletAddress.toLowerCase().includes(searchText) ||
+        row.Incometype.toLowerCase().includes(searchText) ||
+        row.Amount.toLowerCase().includes(searchText) 
+        // ||
+        // row.Date.toLowerCase().includes(searchText) 
+      )
+    )
   });
 
   const allIncomedata1 = allincomedata.filter((row) => {
@@ -226,6 +239,18 @@ const InvoiceContain = () => {
       <Container fluid={true}>
         <Fade top distance='2%' duration={700}>
           <div className='search-and-button d-flex mt-4' style={{ justifyContent: 'space-between' }}>
+          
+
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+            Search All Columns:-
+              <Input
+                type='text'
+                style={{ width: '200px', color: 'white', border: '1px solid #313C4C' }}
+                placeholder='Enter search term'
+                value={searchAllColumns}
+                onChange={(e) => setSearchAllColumns(e.target.value)}
+              />
+            </div>
             <div className='buttons d-flex'>
               {/* <button onClick={copyTable}>Copy</button> */}
               <button onClick={downloadTableAsCSV}>CSV</button>
@@ -233,17 +258,6 @@ const InvoiceContain = () => {
               <button onClick={generatePDF}>PDF</button>
               <button onClick={handlePrint}>Print</button>
               <button onClick={handleReset}>Reset</button>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              Search From User Name:-
-              <Input
-                type='text'
-                style={{ width: '200px' }}
-                placeholder='Enter From User Name'
-                value={searchFromUserName}
-                onChange={(e) => setSearchFromUserName(e.target.value)}
-              />
             </div>
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               Search by Status:-
@@ -270,7 +284,7 @@ const InvoiceContain = () => {
   const [slotincome , setSlotincome] = useState(false) */}
 
             <div className='buttons five-buttons' style={{
-              display: 'flex', justifyContent: 'flex-end', alignItems: 'center',
+              display: 'flex', justifyContent: 'flex-start', alignItems: 'center',
               margin: '20px 0px'
             }}>
               <button onClick={() => {
@@ -367,7 +381,7 @@ const InvoiceContain = () => {
                         {filteredData.map((row, index) => (
                           <tr key={index}>
                             <td>{row.sno}</td>
-                            <td>{row.FromUserID}</td>
+                            <td>{row.ToUserID}</td>
                             <td>{row.ToWalletAddress}</td>
                             {/* <td
                               style={{ cursor: 'pointer' }}
@@ -429,7 +443,7 @@ const InvoiceContain = () => {
                             <td>{row.ToWalletAddress}</td>
                             <td>{row.FromWalletAddress}</td>
                             <td>{row.id}</td>
-                            <td>{row.FromUserID}</td>
+                            <td>{row.ToUserID}</td>
                             <td>{row.Incometype}</td>
                             <td>{row.Amount}</td>
                             <td>{row.Date}</td>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import cubaimg from "./images/GrowWaysLogo.png"
+// import cubaimg from "./images/GrowWaysLogo.png"
 import CustomizerContext from '../../_helper/Customizer';
 
 const SidebarIcon = () => {
@@ -10,7 +10,7 @@ const SidebarIcon = () => {
       <Link to={`${process.env.PUBLIC_URL}/dashboard/default/${layoutURL}`}>
         <img
           className="img-fluid"
-          src={cubaimg}
+          // src={cubaimg}
           alt=""
         />
       </Link>
