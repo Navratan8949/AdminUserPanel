@@ -724,7 +724,7 @@ const Dashboard = () => {
                   </div>
                   {boxdata3.map((data1, index) => {
                     return (
-                      <div className="right-box-3-data-div">
+                      <div key={index} className="right-box-3-data-div">
                         <div className="right-box-3-data-div-left">
                           <span >
                             {data1.name}

@@ -5,6 +5,7 @@
   "homepage": "https://react.pixelstrap.com/cuba-context/",
   "dependencies": {
     "@auth0/auth0-react": "^2.0.1",
+    "@babel/regjsgen": "^0.8.0",
     "@fullcalendar/core": "^6.1.4",
     "@fullcalendar/daygrid": "^6.1.4",
     "@fullcalendar/interaction": "^6.1.4",
@@ -23,7 +24,7 @@
     "chart.js": "^4.2.1",
     "chartjs-plugin-datalabels": "^2.2.0",
     "concurrently": "^8.0.1",
-    "date-fns": "^2.29.3",
+    "date-fns": "^3.3.1",
     "deni-react-treeview": "^1.1.11",
     "easymde": "^2.18.0",
     "emoji-mart": "^5.5.2",
@@ -153,6 +154,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
     "react": "^18.2.0",
